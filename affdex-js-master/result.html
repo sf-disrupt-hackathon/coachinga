@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script src = "https://code.jquery.com/jquery.js"> </script>
+
+        <script>
+            $(document).ready(function(){
+                var num = 120;
+                log('#data',"[");
+                for(var i = 0; i < num; i++){
+                    var data = localStorage.getItem(i);
+                    var result = JSON.parse(data);
+                    if(i < num-1){
+                        data += ','
+                    }
+                    log('#data', data);
+                }
+                log('#data',"]")
+
+                
+            });
+
+
+            
+            function log(node_name, msg) {
+                $(node_name).append("<span>" + msg + "</span><br />")
+            }
+        </script>
+    </head>
+    <body>
+        <p id=data></p>
+    </body>
+</html>
