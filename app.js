@@ -14,7 +14,7 @@ var http = require('http');
 
 var app = express();
 
-app.use('/', express.static('/'));
+app.use('/', express.static('public/'));
 
 /**
  * Create HTTP server.
