@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>Title</title>
+    <script src = "https://code.jquery.com/jquery.js"> </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!--<script src = "https://download.affectiva.com/js/3.2/affdex.js"></script> -->
+    <script src = "js-sdk/affdex.js"></script>
+     <script src = "video.js"> </script> 
+</head>
+<body>
+
+    
+  
+    <video id="video1" controls  width="480" src="./hci/Sessions/2/1.mp4"></video> 
+    <canvas id="canvas1" width="480" height="320"></canvas>
+    <script>
+        var v = document.getElementById("video1");
+        var c = document.getElementById("canvas1");
+        ctx = c.getContext('2d');
+
+        v.addEventListener('play', function() {
+            var i = window.setInterval(function() {
+                ctx.drawImage(v, 0, 0, 480, 320)
+            }, 500);
+        }, false);
+
+
+
+
+    </script> 
+    
+    <div style="height:25em;">
+        <strong>EMOTION TRACKING RESULTS</strong>
+        <div id="results" style="word-wrap:break-word;"></div>
+    </div>
+    <div id="logs">LOGS:</div>
+    
+
+    
+
+</body>
+</html>
