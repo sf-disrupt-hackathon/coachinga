@@ -1,0 +1,29 @@
+{
+  "name": "coachinga",
+  "version": "1.0.0",
+  "description": "Public speaking coach",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sf-disrupt-hackathon/coachinga.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sf-disrupt-hackathon/coachinga/issues"
+  },
+  "homepage": "https://github.com/sf-disrupt-hackathon/coachinga#readme",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "morgan": "^1.8.2",
+    "path": "^0.12.7"
+  }
+}
