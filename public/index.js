@@ -28,12 +28,31 @@ function log(node_name, msg) {
 //function executes when Start button is pushed.
 function onStart() {
     // Call Watson Audio Tone Analyzer "recordButton"
-    console.log("Init Video & Mic");
+    console.log("Init Video & Mic from our index.js");
     if (detector && !detector.isRunning) {
         $("#logs").html("");
-        detector.start();        
+        detector.start();
     }
     log('#logs', "Clicked the start button");
+
+    // Initialize mic
+    var running = !1,
+        token = ctx.token,
+        micOptions = {
+            bufferSize: ctx.buffersize
+        },
+        mic = new Microphone(micOptions);
+    return function (evt) {
+        evt.preventDefault();
+        var currentModel = localStorage.getItem("currentModel"),
+            currentlyDisplaying = localStorage.getItem("currentlyDisplaying");
+        return "sample" == currentlyDisplaying || "fileupload" == currentlyDisplaying ? void showError("Currently another file is playing, please stop the file or wait until it finishes") : (localStorage.setItem("currentlyDisplaying", "record"), void(running ? (console.log("Stopping microphone, sending stop action message"), recordButton.removeAttr("style"), recordButton.find("img").attr("src", "images/microphone.svg"), $.publish("hardsocketstop"), mic.stop(), running = !1, localStorage.setItem("currentlyDisplaying", "false")) : ($("#resultsText").val(""), console.log("Not running, handleMicrophone()"), handleMicrophone(token, currentModel, mic, function (err) {
+            if (err) {
+                var msg = "Error: " + err.message;
+                console.log(msg), showError(msg), running = !1, localStorage.setItem("currentlyDisplaying", "false")
+            } else recordButton.css("background-color", "#d74108"), recordButton.find("img").attr("src", "images/stop.svg"), console.log("starting mic"), mic.record(), running = !0
+        }))))
+    }
 }
 
 //function executes when the Stop button is pushed.

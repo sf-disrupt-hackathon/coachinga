@@ -88,6 +88,7 @@ function log(node_name, msg) {
 
 //function executes when Start button is pushed.
 function onStart() {
+  console.log("OnStart from the library");
   if (detector && !detector.isRunning) {
     $("#logs").html("");
     detector.start();
