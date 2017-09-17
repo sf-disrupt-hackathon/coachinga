@@ -61,9 +61,9 @@ require("cf-deployment-tracker-client").track();
 // });
 
 // Configure Watson Speech to Text service
-var speechCreds = getServiceCreds(appEnv, 'rtt-speech-to-text');
-speechCreds.version = 'v1';
-var authService = watson.authorization(speechCreds);
+// var speechCreds = getServiceCreds(appEnv, 'rtt-speech-to-text');
+// speechCreds.version = 'v1';
+// var authService = watson.authorization(speechCreds);
 
 // Configure Watson Speech to Text service
 var toneCreds = getServiceCreds(appEnv, 'rtt-tone-analyzer');
@@ -72,23 +72,23 @@ toneCreds.version_date = '2016-05-19';
 var toneAnalyzer = watson.tone_analyzer(toneCreds);
 
 // Root page handler
-app.get('/', function (req, res) {
-  res.render('index', {
-    ct: req._csrfToken
-  });
-});
+// app.get('/', function (req, res) {
+//   res.render('index', {
+//     ct: req._csrfToken
+//   });
+// });
 
 // Get token using your credentials
-app.post('/api/token', function (req, res, next) {
-  authService.getToken({
-    url: speechCreds.url
-  }, function (err, token) {
-    if (err)
-      next(err);
-    else
-      res.send(token);
-  });
-});
+// app.post('/api/token', function (req, res, next) {
+//   authService.getToken({
+//     url: speechCreds.url
+//   }, function (err, token) {
+//     if (err)
+//       next(err);
+//     else
+//       res.send(token);
+//   });
+// });
 
 // Request handler for tone analysis
 app.post('/api/tone', function (req, res, next) {
