@@ -4,7 +4,10 @@
   "description": "Public speaking coach",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "build": "browserify src/index.js | uglifyjs -nc > public/js/index.js",
+    "watch": "watchify -v -d -o public/js/index.js src/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,12 +21,15 @@
   "homepage": "https://github.com/sf-disrupt-hackathon/coachinga#readme",
   "dependencies": {
     "body-parser": "^1.18.1",
+    "cf-deployment-tracker-client": "^0.1.3",
+    "cfenv": "^1.0.4",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
     "fs": "0.0.1-security",
     "http": "0.0.0",
     "morgan": "^1.8.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "watson-developer-cloud": "^2.39.0"
   }
 }
