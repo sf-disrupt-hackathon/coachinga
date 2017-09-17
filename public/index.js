@@ -27,9 +27,11 @@ function log(node_name, msg) {
 
 //function executes when Start button is pushed.
 function onStart() {
+    // Call Watson Audio Tone Analyzer "recordButton"
+    console.log("Init Video & Mic");
     if (detector && !detector.isRunning) {
         $("#logs").html("");
-        detector.start();
+        detector.start();        
     }
     log('#logs', "Clicked the start button");
 }
